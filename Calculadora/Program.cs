@@ -5,8 +5,8 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        int numero;
-        double numTrabajado;
+        int numero = 0;
+        double numTrabajado = 0;
 
         Calculadora calculadora = new Calculadora();
 
@@ -16,25 +16,30 @@ internal class Program
             string entrada = Console.ReadLine();
             numero = Convert.ToInt32(entrada);
 
-            Console.Write("Ingrese un número: ");
-            entrada = Console.ReadLine();
-            numTrabajado = Convert.ToDouble(entrada);
+            Calculadora.Operacion operacion = (Calculadora.Operacion)numero;
 
-            switch (numero)
+            if(operacion != Calculadora.Operacion.Limpiar)
             {
-                case 1:
+                Console.Write("Ingrese un número: ");
+                entrada = Console.ReadLine();
+                numTrabajado = Convert.ToDouble(entrada);
+            }
+
+            switch (operacion)
+            {
+                case Calculadora.Operacion.Sumar:
                     calculadora.Sumar(numTrabajado);
                     break;
-                case 2:
+                case Calculadora.Operacion.Restar:
                     calculadora.Restar(numTrabajado);
                     break;
-                case 3:
+                case Calculadora.Operacion.Multiplicar:
                     calculadora.Multiplicar(numTrabajado);
                     break;
-                case 4:
+                case Calculadora.Operacion.Dividir:
                     calculadora.Dividir(numTrabajado);
                     break;
-                case 5:
+                case Calculadora.Operacion.Limpiar:
                     calculadora.Limpiar();
                     break;
 

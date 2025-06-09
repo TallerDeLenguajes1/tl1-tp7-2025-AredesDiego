@@ -1,2 +1,42 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System.Dynamic;
+
+namespace EspacioCalculadora
+{
+    class Calculadora
+    {
+        private double dato;
+        public double Resultado
+        {
+            get { return dato; }
+        }
+
+        public void Sumar(double termino)
+        {
+            dato += termino;
+        }
+        public void Restar(double termino)
+        {
+            dato -= termino;
+        }
+        public void Multiplicar(double termino)
+        {
+            dato *= termino;    
+        }
+        public void Dividir(double termino)
+        {
+            if (termino != 0)
+            {
+                dato /= termino;
+            }
+            dato = 0;
+        }
+        public void Limpiar()
+        {
+            dato = 0;
+        }
+    }
+}
+
+
+
+
